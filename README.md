@@ -3,7 +3,7 @@ A basic setup to automate ACI deployment with ansible.
 
 ## Usage
 
-There are three steps required to run the ansible playbook:
+There are **three steps** required to run the ansible playbook:
 
  1. Clone the repository:
     
