@@ -13,7 +13,7 @@ There are **three steps** required to run the ansible playbook:
 
  3. Within the **directory** run the command:
  
-        ACI_setup_with_ansible$ ansible-playbook -i inventory.yml site.yml -v
+        :~/ACI_setup_with_ansible$ ansible-playbook -i inventory.yml site.yml -v
 
 
 
