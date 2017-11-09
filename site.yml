@@ -1,0 +1,7 @@
+- name: Run a ACI task 
+  hosts: apic1
+  gather_facts: no
+
+  roles:
+  - role: ACI_setup_with_ansible
+    aci_model_data: "{ aci_topology }"

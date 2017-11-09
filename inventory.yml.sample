@@ -1,0 +1,17 @@
+fabric01:
+  hosts:
+    apic1:
+      ansible_host: X.X.X.X
+      ansible_user: username
+      ansible_password: password
+      apic_host: X.X.X.X
+      apic_username: username
+      apic_password: password
+  vars:
+    apic_use_proxy: no
+    apic_validate_certs: no
+
+    aci_topology:
+      tenant:
+      - name: Example99
+        description: Example99
