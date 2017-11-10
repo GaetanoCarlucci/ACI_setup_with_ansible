@@ -9,7 +9,42 @@
       validate_certs: '{{ apic_validate_certs }}'
 
   block:
-  - name: Query all AEPs
-    aci_aep:
+  - name: Add a tenant using a JSON string
+    aci_rest:
       <<: *aci_login
-      state: query
+      path: /api/mo/uni/tn-[Gaetano].json
+      method: post
+      content: |
+       {
+         "fvTenant": {
+           "attributes": {
+             "name": "Gaetano",
+             "descr": "Gaetano ansible"
+           }
+         }
+       }
+
+  - name: Add physical domains
+    aci_rest:
+      <<: *aci_login
+      path: /api/node/mo/uni/phys-{{ item.access_policy_physical_domain_name }}.json
+      method: post
+      content: |
+       {
+         "physDomP": {
+           "attributes": {
+             "dn":"uni/phys-{{  item.access_policy_physical_domain_name }}",
+             "name":"{{ item.access_policy_physical_domain_name }}",
+             "ownerKey":"",
+             "ownerTag":""
+           },
+           "children":[{
+             "infraRsVlanNs": {
+               "attributes":{
+                 "tDn":"uni/infra/vlanns-[{{ item.access_policy_physical_domain_vlan_pool }}]-{{ item.access_policy_physical_domain_vlan_pool_alloc }}"
+               }
+             }
+           }]
+         }
+       }
+    with_items: '{{ aci_model_data|aci_listify("access_policy","physical_domain") }}'
