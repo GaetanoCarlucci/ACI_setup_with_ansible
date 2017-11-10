@@ -12,6 +12,8 @@ fabric01:
     apic_validate_certs: no
 
     aci_topology:
-      tenant:
-      - name: Example99
-        description: Example99
+      - physical_domain:
+        - name: name
+          vlan_pool: name_vlan
+          vlan_pool_alloc: static
+
