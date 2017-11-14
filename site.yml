@@ -4,4 +4,4 @@
 
   roles:
   - role: ACI_setup_with_ansible
-    aci_model_data: "{ aci_topology }"
+    aci_model_data: "{{ aci_topology }}"

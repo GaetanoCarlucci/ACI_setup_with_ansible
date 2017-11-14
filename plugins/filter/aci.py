@@ -27,6 +27,7 @@ def listify_worker(d, keys, depth, result, cache, prefix):
                         if k == keys[depth+1]:
                             if isinstance(v, dict) or isinstance(v, list):
                                 result = listify_worker({k:v}, keys, depth+1, result, cache_work, prefix)
+    	    
     return result
 
 class FilterModule(object):

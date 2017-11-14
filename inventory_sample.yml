@@ -12,6 +12,7 @@ fabric01:
     apic_validate_certs: no
 
     aci_topology:
+      access_policy:
       - physical_domain:
         - name: name
           vlan_pool: name_vlan
