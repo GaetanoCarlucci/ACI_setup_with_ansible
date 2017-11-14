@@ -10,6 +10,7 @@
 
   block:
   - name: Add a tenant using a JSON string
+    connection: local
     aci_rest:
       <<: *aci_login
       path: /api/mo/uni/tn-[Gaetano].json
@@ -25,6 +26,7 @@
        }
 
   - name: Add physical domains
+    connection: local
     aci_rest:
       <<: *aci_login
       path: /api/node/mo/uni/phys-{{ item.access_policy_physical_domain_name }}.json
@@ -48,3 +50,6 @@
          }
        }
     with_items: '{{ aci_model_data|aci_listify("access_policy","physical_domain") }}'
+
+  - name: Who am i
+    shell: "whoami"
