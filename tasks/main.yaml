@@ -53,3 +53,9 @@
 
   - name: Who am i
     shell: "whoami"
+    register: results
+ 
+  - name: show results
+    debug: msg={{ results.stdout_lines }}
+
+
