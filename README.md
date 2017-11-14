@@ -1,6 +1,11 @@
 # ACI setup with Ansible
 A basic setup to automate ACI deployment with ansible.
 
+The tasks folder contains a `main.yml` file which will execute some tasks among which:
+
+1. Creates a ACI tennant.
+2. Creates a physical domain.
+
 ## Usage
 
 There are **three steps** required to run the ansible playbook:
@@ -14,7 +19,3 @@ There are **three steps** required to run the ansible playbook:
  3. Within the **directory** run the command:
  
         :~/ACI_setup_with_ansible$ ansible-playbook -i inventory.yml site.yml -v
-
-
-
-
