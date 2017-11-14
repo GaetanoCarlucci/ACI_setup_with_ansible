@@ -3,8 +3,8 @@ A basic setup to automate ACI deployment with ansible.
 
 The tasks folder contains a `main.yml` file which will execute some tasks among which:
 
-1. Creates a ACI tennant.
-2. Creates a physical domain.
+1. Creation of a *ACI tennant*.
+2. Creation of a *physical domain*.
 
 ## Usage
 
